@@ -1,0 +1,68 @@
+{
+	"content": [
+		{
+			"tag": "Menor de edad",
+      "next": [
+        {
+          "tag": "Trámite relacionado con UMF o clínica",
+          "next": [
+            "Darse de alta en su UMF",
+            "Darse de baja en su UMF",
+            "Actualizar o cambiar su UMF"
+          ]
+        },
+        {
+          "tag":"Trámite relacionado con guarderías",
+          "next": "Inscribir a tu hijo a guarderias IMSS"
+        },
+        {
+          "tag":"Trámite relacionado con prótesis externa, ortesis o ayuda técnica",
+          "next": "Solicitar prótesis externa, ortesis o ayuda técnica"
+        }
+      ]
+		},
+		{
+			"tag": "Mayor de edad",
+      "next": [
+        {
+          "tag": "Trámite relacionado con UMF o clínica",
+          "next": [
+            "Darse de alta en su UMF",
+            "Darse de baja en su UMF",
+            "Actualizar o cambiar su UMF"
+          ]
+        },
+        {
+          "tag":"Trámite relacionado con no derechohabientes",
+          "next": [
+            "Constancia de no derechohabiente",
+            "Inscripción a cursos representativos IMSS no derechohabiente"
+          ]
+        },
+        {
+          "tag":"Trámite relacionado con tu trabajo",
+          "next": [
+            "Aviso de calificación para accidente o enfermedad de trabajo",
+            "Dictamen de incapacidad",
+            "Certificado de discapacidad con fines de aplicación del árticulo 186"
+          ]
+        },
+        {
+          "tag":"Trámite relacionado con tu familia",
+          "next": "Incorporar a su familia al seguro de salud del IMSS"
+        },
+        {
+          "tag":"Otros trámites fuera de las categorías anteriores",
+          "next": [
+            "Reposición de credencial para usuarios de préstamos sociales",
+            "Solicitar prótesis externa, ortesis o ayda técnica",
+            "Inscripción a cursos ofrecidos por el IMSS",
+            "Regularización o correción de tus datos personales",
+            "Recuperación u obtención de tu NSS",
+            "Solicitar la entrega de bienes resultados en una subasta del IMSS"
+          ]
+        }
+      ]
+		}
+	]
+}

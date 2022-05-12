@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -210,7 +210,23 @@
 					</div>
 				</div>
 				<div class="chatbox__messages">
-					<div></div>
+					<div class="messages__item messages__item--visitor">
+						Bienvenido al chatbot del IMSS. Puedo ayudarte a
+						resolver tus dudas sobre algún trámite. Para empezar
+						quisiera saber a quien está dirigido tu trámite.
+					</div>
+				</div>
+				<div class="chatbox__options" id="choices">
+					<div
+						class="options messages__item messages__item--selector"
+					>
+						Menor de edad
+					</div>
+					<div
+						class="options messages__item messages__item--selector"
+					>
+						Mayor de edad
+					</div>
 				</div>
 				<div class="chatbox__footer">
 					<input type="text" placeholder="Escribe un mensaje..." />
@@ -226,8 +242,5 @@
 			</div>
 		</div>
 	</body>
-	<script>
-		$SCRIPT_ROOT = {{ request.script_root|tojson }};
-	</script>
 	<script src="{{ url_for('static', filename='script/source.js')}}"></script>
 </html>

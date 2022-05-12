@@ -1,7 +1,5 @@
-import json
-from urllib import response
-from flask import Flask, render_template, request, jsonify
 from chat import feedback
+from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
