@@ -44,7 +44,7 @@ class Chatbot {
           "tag": "Menor de edad",
           "next": [
             {
-              "tag": "Trámite relacionado con UMF o clínica",
+              "tag": "Trámite relacionado con UMF",
               "next": [
                 "Darse de alta en su UMF",
                 "Darse de baja en su UMF",
@@ -142,7 +142,7 @@ class Chatbot {
     }
     let msg1 = { name: "User", message: text1 }
     this.messages.push(msg1);
-    fetch('/choice', {
+    fetch('/predict', {
       method: 'POST',
       body: JSON.stringify({ message: text1 }),
       mode: 'cors',

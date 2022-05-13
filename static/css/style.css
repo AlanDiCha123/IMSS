@@ -237,8 +237,8 @@ html {
   display: flex;
   flex-direction: column;
   background: #eee;
-  width: 300px;
-  height: 350px;
+  width: 400px;
+  height: 550px;
   z-index: -123456;
   opacity: 0;
   transition: all .5s ease-in-out;
@@ -285,10 +285,12 @@ html {
 
 .messages__item--operator {
   margin-left: auto;
+  word-break: break-all;
 }
 
 .messages__item--visitor {
   margin-right: auto;
+  word-break: keep-all;
 }
 
 .chatbox__options {

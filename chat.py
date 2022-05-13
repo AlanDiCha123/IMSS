@@ -1,17 +1,39 @@
 import re
 import random
-
 # We import re module to use regular expressions (avoiding special chars)
 # We define chatbot's answer method with the input user
 
 
 def feedback(text):
     # We define answer chatbot
+    msg = evaluate(text)
+    if msg != None:
+        return msg
     split_msg = re.split(r'\s|[,:;.?-_]\s*', text.lower())
     answer = msg_checking(split_msg)
     return answer
 
 
+def evaluate(text):
+    myList = [
+        "Trámite relacionado con UMF",
+        "Trámite relacionado con UMF o clínica",
+        "Trámite relacionado con guarderías",
+        "Trámite relacionado con prótesis externa, ortesis o ayuda técnica",
+        "Trámite relacionado con no derechohabientes",
+        "Trámite relacionado con tu trabajo",
+        "Trámite relacionado con tu familia",
+        "Otros trámites fuera de las categorías anteriores"
+    ]
+    if text == "Menor de edad" or text == "Mayor de edad":
+        return "¿Qué desea realizar?"
+    # elif text == "Trámite relacionado con UMF o clínica":
+    #     return "Seleccione el trámite deseado"
+    for i in myList:
+        if text == i:
+            return "Seleccione el trámite deseado"
+    else:
+        return None
 # user_message: User's messages
 # known_words: List of recognized words
 # required_words: In case what there is a word, it requires a specific word
