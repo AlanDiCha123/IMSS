@@ -1,42 +1,54 @@
 {
-	"content": [
-		{
-			"tag": "Menor de edad",
+  "content": [
+    {
+      "tag": "Menor de edad",
       "next": [
         {
           "tag": "Trámite relacionado con UMF o clínica",
           "next": [
             "Darse de alta en su UMF",
             "Darse de baja en su UMF",
-            "Actualizar o cambiar su UMF"
+            "Actualizar o cambiar su UMF", 
+            "Terminar conversación"
           ]
         },
         {
           "tag":"Trámite relacionado con guarderías",
-          "next": "Inscribir a tu hijo a guarderias IMSS"
+          "next": [
+            "Inscribir a tu hijo a guarderias IMSS",
+            "Terminar conversación"
+          ]
         },
         {
           "tag":"Trámite relacionado con prótesis externa, ortesis o ayuda técnica",
-          "next": "Solicitar prótesis externa, ortesis o ayuda técnica"
+          "next": [
+            "Solicitar prótesis externa, ortesis o ayuda técnica",
+            "Terminar conversación"
+        ]
+        },
+        {
+          "tag": "Terminar conversación"
         }
       ]
-		},
-		{
-			"tag": "Mayor de edad",
+    },
+    {
+      "tag": "Mayor de edad",
       "next": [
         {
           "tag": "Trámite relacionado con UMF o clínica",
           "next": [
             "Darse de alta en su UMF",
             "Darse de baja en su UMF",
-            "Actualizar o cambiar su UMF"
+            "Actualizar o cambiar su UMF",
+            "Terminar conversación"
           ]
         },
         {
           "tag":"Trámite relacionado con no derechohabientes",
           "next": [
             "Constancia de no derechohabiente",
-            "Inscripción a cursos representativos IMSS no derechohabiente"
+            "Inscripción a cursos representativos IMSS no derechohabiente",
+            "Terminar conversación"
           ]
         },
         {
@@ -44,12 +56,16 @@
           "next": [
             "Aviso de calificación para accidente o enfermedad de trabajo",
             "Dictamen de incapacidad",
-            "Certificado de discapacidad con fines de aplicación del árticulo 186"
+            "Certificado de discapacidad con fines de aplicación del árticulo 186",
+            "Terminar conversación"
           ]
         },
         {
           "tag":"Trámite relacionado con tu familia",
-          "next": "Incorporar a su familia al seguro de salud del IMSS"
+          "next": [
+            "Incorporar a su familia al seguro de salud del IMSS",
+            "Terminar conversación"
+          ]
         },
         {
           "tag":"Otros trámites fuera de las categorías anteriores",
@@ -61,8 +77,11 @@
             "Recuperación u obtención de tu NSS",
             "Solicitar la entrega de bienes resultados en una subasta del IMSS"
           ]
+        },
+        {
+          "tag": "Terminar conversación"
         }
       ]
-		}
-	]
+    }
+  ]
 }

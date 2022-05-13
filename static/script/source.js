@@ -15,8 +15,7 @@ class Chatbot {
   display() {
     const { openButton, chatBox, sendButton, choiceButton } = this.args;
     openButton.addEventListener('click', () => this.toggle(chatBox));
-    var choices = [].slice.call(choiceButton.querySelectorAll('.options'));
-    choiceButton.addEventListener('click', e => this.buttonClicked(chatBox, choices.indexOf(e.target)));
+    choiceButton.addEventListener('click', e => this.buttonClicked(chatBox, [].slice.call(choiceButton.querySelectorAll('.options')).indexOf(e.target)));
     sendButton.addEventListener('click', () => this.onSendButton(chatBox));
     // We listen to sending button
     const node = chatBox.querySelector("input");
@@ -39,9 +38,6 @@ class Chatbot {
   }
 
   buttonClicked(chatbox, index) {
-    if (index === -1) {
-      index = 0;
-    }
     let intents = `{
       "content": [
         {
@@ -52,16 +48,26 @@ class Chatbot {
               "next": [
                 "Darse de alta en su UMF",
                 "Darse de baja en su UMF",
-                "Actualizar o cambiar su UMF"
+                "Actualizar o cambiar su UMF", 
+                "Terminar conversación"
               ]
             },
             {
               "tag":"Trámite relacionado con guarderías",
-              "next": "Inscribir a tu hijo a guarderias IMSS"
+              "next": [
+                "Inscribir a tu hijo a guarderias IMSS",
+                "Terminar conversación"
+              ]
             },
             {
               "tag":"Trámite relacionado con prótesis externa, ortesis o ayuda técnica",
-              "next": "Solicitar prótesis externa, ortesis o ayuda técnica"
+              "next": [
+                "Solicitar prótesis externa, ortesis o ayuda técnica",
+                "Terminar conversación"
+            ]
+            },
+            {
+              "tag": "Terminar conversación"
             }
           ]
         },
@@ -73,14 +79,16 @@ class Chatbot {
               "next": [
                 "Darse de alta en su UMF",
                 "Darse de baja en su UMF",
-                "Actualizar o cambiar su UMF"
+                "Actualizar o cambiar su UMF",
+                "Terminar conversación"
               ]
             },
             {
               "tag":"Trámite relacionado con no derechohabientes",
               "next": [
                 "Constancia de no derechohabiente",
-                "Inscripción a cursos representativos IMSS no derechohabiente"
+                "Inscripción a cursos representativos IMSS no derechohabiente",
+                "Terminar conversación"
               ]
             },
             {
@@ -88,12 +96,16 @@ class Chatbot {
               "next": [
                 "Aviso de calificación para accidente o enfermedad de trabajo",
                 "Dictamen de incapacidad",
-                "Certificado de discapacidad con fines de aplicación del árticulo 186"
+                "Certificado de discapacidad con fines de aplicación del árticulo 186",
+                "Terminar conversación"
               ]
             },
             {
               "tag":"Trámite relacionado con tu familia",
-              "next": "Incorporar a su familia al seguro de salud del IMSS"
+              "next": [
+                "Incorporar a su familia al seguro de salud del IMSS",
+                "Terminar conversación"
+              ]
             },
             {
               "tag":"Otros trámites fuera de las categorías anteriores",
@@ -105,6 +117,9 @@ class Chatbot {
                 "Recuperación u obtención de tu NSS",
                 "Solicitar la entrega de bienes resultados en una subasta del IMSS"
               ]
+            },
+            {
+              "tag": "Terminar conversación"
             }
           ]
         }
@@ -115,16 +130,19 @@ class Chatbot {
     const obj = JSON.parse(intents);
     var html = '';
     var textField = chatbox.querySelector('.chatbox__options');
-    console.log(index);
     let text1 = document.getElementsByClassName('options')[index].innerText;
+    console.log(index);
+    if (text1 === "Terminar conversación") {
+      this.clearContent(chatbox);
+      return 0;
+    }
     let band = false;
-    console.log(textField.children.length);
     for (let i = 0; i < 2; i++) {
       if (obj.content[i].tag === text1) band = true;
     }
     let msg1 = { name: "User", message: text1 }
     this.messages.push(msg1);
-    fetch('/predict', {
+    fetch('/choice', {
       method: 'POST',
       body: JSON.stringify({ message: text1 }),
       mode: 'cors',
@@ -210,15 +228,36 @@ class Chatbot {
 
   updateChatText(chatbox) {
     var html = '';
+    var band = false;
     this.messages.slice().reverse().forEach(function (item) {
       if (item.name === "Sam") {
         html += `<div class="messages__item messages__item--visitor"> ${item.message} </div>`;
+        if (item.message === "Estoy para servirle") band = true;
       } else {
         html += `<div class="messages__item messages__item--operator"> ${item.message} </div>`;
       }
     });
     const chatmessage = chatbox.querySelector('.chatbox__messages');
     chatmessage.innerHTML = html;
+    if (band) setTimeout(() => this.clearContent(chatbox), 4000);
+  }
+
+  clearContent(chatbox) {
+    var html = ` <div class="messages__item messages__item--visitor">
+					Bienvenido al chatbot del IMSS. Puedo ayudarte a
+					resolver tus dudas sobre algún trámite. Para empezar
+					quisiera saber a quien está dirigido tu trámite.</div> `;
+
+    const chatmessage = chatbox.querySelector('.chatbox__messages');
+    chatmessage.innerHTML = html;
+
+    var options = `<div class="options messages__item messages__item--selector">
+					Menor de edad </div>
+					<div class="options messages__item messages__item--selector">
+					Mayor de edad </div> `;
+
+    const chatoptions = chatbox.querySelector('.chatbox__options');
+    chatoptions.innerHTML = options;
   }
 }
 
