@@ -293,7 +293,7 @@ html {
 
 .chatbox__options {
   overflow-y: scroll;
-  height: 180px;
+  /* height: 180px; */
   box-sizing: border-box;
   margin-top: 5px;
 }
@@ -320,7 +320,7 @@ html {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 15px 20px;
+  padding: 5px 20px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   box-shadow: var(--primaryBoxShadow);
@@ -331,12 +331,7 @@ html {
 }
 
 .chatbox__heading--header {
-  font-size: 1.2rem;
-  color: white;
-}
-
-.chatbox__description--header {
-  font-size: .9rem;
+  font-size: 1.5rem;
   color: white;
 }
 
@@ -388,18 +383,18 @@ html {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 20px;
+  padding: 10px 20px;
   background: var(--secondaryGradient);
-  box-shadow: var(--secondaryBoxShadow);
+  /* box-shadow: var(--secondaryBoxShadow); */
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
 .chatbox__footer input {
   width: 80%;
   border: none;
-  padding: 10px 10px;
+  padding: 5px 10px;
   border-radius: 30px;
   text-align: left;
 }

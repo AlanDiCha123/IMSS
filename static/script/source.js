@@ -16,14 +16,6 @@ class Chatbot {
     const { openButton, chatBox, sendButton, choiceButton } = this.args;
     openButton.addEventListener('click', () => this.toggle(chatBox));
     var choices = [].slice.call(choiceButton.querySelectorAll('.options'));
-    // choiceButton.addEventListener('click', function (e) {
-    //   var index = choices.indexOf(e.target);
-    //   if (index !== -1) {
-    //     buttonClicked(chatBox, index);
-    //   } else {
-    //     console.log(index);
-    //   }
-    // });
     choiceButton.addEventListener('click', e => this.buttonClicked(chatBox, choices.indexOf(e.target)));
     sendButton.addEventListener('click', () => this.onSendButton(chatBox));
     // We listen to sending button
@@ -47,6 +39,9 @@ class Chatbot {
   }
 
   buttonClicked(chatbox, index) {
+    if (index === -1) {
+      index = 0;
+    }
     let intents = `{
       "content": [
         {
@@ -120,10 +115,15 @@ class Chatbot {
     const obj = JSON.parse(intents);
     var html = '';
     var textField = chatbox.querySelector('.chatbox__options');
-    let text1 = textField.getElementsByClassName('options')[index].innerText;
+    console.log(index);
+    let text1 = document.getElementsByClassName('options')[index].innerText;
+    let band = false;
+    console.log(textField.children.length);
+    for (let i = 0; i < 2; i++) {
+      if (obj.content[i].tag === text1) band = true;
+    }
     let msg1 = { name: "User", message: text1 }
     this.messages.push(msg1);
-    var count = textField.children.length;
     fetch('/predict', {
       method: 'POST',
       body: JSON.stringify({ message: text1 }),
@@ -143,20 +143,34 @@ class Chatbot {
         this.updateChatText(chatbox);
         textField.value = '';
       });
-    for (var i = 0; i < textField.children.length; i++) {
-      if (obj.content[i].tag === textField.getElementsByClassName('options')[index].innerText) {
-        for (let k = 0; k < obj.content[i].next.length; k++) {
-          html += `<div class="options messages__item messages__item--selector"> 
+    if (band) {
+      for (var i = 0; i < textField.children.length; i++) {
+        if (obj.content[i].tag === textField.getElementsByClassName('options')[index].innerText) {
+          for (let k = 0; k < obj.content[i].next.length; k++) {
+            html += `<div class="options messages__item messages__item--selector"> 
               ${obj.content[i].next[k].tag} </div>`;
+          }
+          break;
         }
-        break;
+      }
+    } else {
+      for (var i = 0; i < obj.content.length; i++) {
+        for (var j = 0; j < obj.content[i].next.length; j++) {
+          if (obj.content[i].next[j].tag === textField.getElementsByClassName('options')[index].innerText) {
+            for (let k = 0; k < obj.content[i].next[j].next.length; k++) {
+              html += `<div class="options messages__item messages__item--selector"> 
+                ${obj.content[i].next[j].next[k]} </div>`;
+            }
+            break;
+          }
+        }
       }
     }
     var div = document.getElementById('choices');
     while (div.firstChild) {
       div.removeChild(div.firstChild);
     }
-    // textField.innerHTML = html;
+    textField.innerHTML = html;
     chatbox.querySelector('.chatbox__options').innerHTML = html;
     html = '';
   }
