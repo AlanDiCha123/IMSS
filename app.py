@@ -1,5 +1,4 @@
 from chat import feedback
-from choices import greetings
 from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
@@ -15,15 +14,6 @@ def predict():
     text = request.get_json().get("message")
     # TODO: check if text is valid
     response = feedback(text)
-    message = {"answer": response}
-    return jsonify(message)
-
-
-@app.post("/choice")
-def choice():
-    text = request.get_json().get("message")
-    # TODO: evaluate opitons
-    response = greetings(text)
     message = {"answer": response}
     return jsonify(message)
 
