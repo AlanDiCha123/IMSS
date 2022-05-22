@@ -1,206 +1,173 @@
 <!DOCTYPE html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="stylesheet"
-			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-		/>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
-			rel="stylesheet"
-		/>
-		<link
-			rel="stylesheet"
-			href="{{ url_for('static', filename='css/style.css') }}"
-		/>
-		<title>Sitio Web del IMSS</title>
-		<link
-			rel="icon"
-			href="../static/imgs/hospital.png"
-			type="image/x-icon"
-		/>
-	</head>
-	<body>
-		<div class="navbar">
-			<nav class="top">
-				<a href="https://www.gob.mx">
-					<img
-						src="https://framework-gb.cdn.gob.mx/landing/img/logoheader.svg"
-						width="128"
-						height="48"
-					/>
-				</a>
-				<ul>
-					<li class="list-first">
-						<a href="https://www.gob.mx/tramites"
-							>Tr&aacute;mites</a
-						>
-					</li>
-					<li class="list-first">
-						<a href="https://www.gob.mx/gobierno">Gobierno</a>
-					</li>
-					<li class="list-first">
-						<a href="https://www.gob.mx/busqueda"
-							><i class="fa fa-search"></i
-						></a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-		<div class="navbar navbar-second">
-			<nav class="top">
-				<a href="https://www.gob.mx" class="home">IMSS</a>
-				<ul>
-					<li class="list-second"><a href="">Inicio</a></li>
-					<li class="list-second second--double">
-						<a href="https://www.gob.mx/conoce-al-imss"
-							>Conoce al IMSS</a
-						>
-					</li>
-					<li class="list-second">
-						<a href="https://www.gob.mx/transparencia"
-							>Transparencia</a
-						>
-					</li>
-					<li class="list-second">
-						<a href="https://www.gob.mx/directorio">Directorio</a>
-					</li>
-					<li class="list-second second--double">
-						<a href="https://www.gob.mx/contacto"
-							>Contacto ciudadano</a
-						>
-					</li>
-				</ul>
-			</nav>
-		</div>
-		<div class="nothing"></div>
-		<div class="content">
-			<h2><a href="#">Sitio Web "Acercando el IMSS al Ciudadano"</a></h2>
-			<div class="adress">
-				<nav>
-					<ul>
-						<li class="direct">
-							<a href=""
-								><i
-									class="fa fa-home"
-									style="font-size: 20px"
-								></i
-							></a>
-						</li>
-						<li class="direct">
-							<i class="fa fa-chevron-right"></i>
-						</li>
-						<li class="direct">
-							<i class="fa fa-chevron-right"></i
-							><a href="">Inicio</a>
-						</li>
-						<li class="direct">
-							<i class="fa fa-chevron-right"></i>
-						</li>
-					</ul>
-				</nav>
-			</div>
-			<div class="row">
-				<h2>Informaci&oacute;n, tr&aacute;mites y servicios para:</h2>
-				<hr class="custom" />
-				<div class="yellow"></div>
-			</div>
-			<div class="choose">
-				<div class="cover">
-					<a href=""><img src="../static/imgs/derechoh.jpg" /></a>
-					<a href=""
-						>Derechohabientes, pensionados y p&uacute;blico en
-						general
-					</a>
-				</div>
-				<div class="cover">
-					<a href=""
-						><img src="../static/imgs/patrones.jpg" alt=""
-					/></a>
-					<a href="">Patrones o Empresas</a>
-				</div>
-				<div class="cover">
-					<a href=""><img src="../static/imgs/proee.jpg" alt="" /></a>
-					<a href="">Proveedores del IMSS</a>
-				</div>
-				<div class="cover">
-					<a href=""
-						><img src="../static/imgs/profsalud.jpg" alt=""
-					/></a>
-					<a href="">Profesionales de la salud</a>
-				</div>
-				<div class="cover">
-					<a href=""
-						><img src="../static/imgs/salaprensa.jpg" alt=""
-					/></a>
-					<a href="">Sala de prensa</a>
-				</div>
-				<div class="cover">
-					<a href=""><img src="../static/imgs/salud.jpg" alt="" /></a>
-					<a href="">Salud en l&iacute;nea</a>
-				</div>
-			</div>
-		</div>
-		<div class="chatbox">
-			<div class="chatbox__support">
-				<div class="chatbox__header">
-					<div class="chatbox__image--header">
-						<img
-							src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png"
-							alt="image"
-						/>
-					</div>
-					<div class="chatbox__content--header">
-						<h4 class="chatbox__heading--header">
-							Soporte de chat
-						</h4>
-					</div>
-				</div>
-				<div class="chatbox__messages">
-					<div class="messages__item messages__item--visitor">
-						Bienvenido al chatbot del IMSS. Puedo ayudarte a
-						resolver tus dudas sobre algún trámite. Para empezar
-						quisiera saber a quien está dirigido tu trámite.
-					</div>
-				</div>
-				<div class="chatbox__options" id="choices">
-					<div
-						class="options messages__item messages__item--selector"
-					>
-						Menor de edad
-					</div>
-					<div
-						class="options messages__item messages__item--selector"
-					>
-						Mayor de edad
-					</div>
-				</div>
-				<div class="chatbox__footer">
-					<input
-						type="text"
-						placeholder="Escribe un mensaje..."
-						autocomplete="off"
-					/>
-					<button class="chatbox__send--footer send__button">
-						<i class="glyphicon glyphicon-send"></i>
-					</button>
-				</div>
-			</div>
-			<div class="chatbox__button">
-				<button>
-					<i class="fa fa-comments"></i>
-				</button>
-			</div>
-		</div>
-	</body>
-	<script src="{{ url_for('static', filename='script/source.js')}}"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <title>Sitio Web del IMSS</title>
+    <link rel="icon" href="../static/imgs/hospital.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="navbar">
+      <nav class="top">
+        <a href="https://www.gob.mx">
+          <img
+            src="https://framework-gb.cdn.gob.mx/landing/img/logoheader.svg"
+            width="128"
+            height="48"
+          />
+        </a>
+        <ul>
+          <li class="list-first">
+            <a href="https://www.gob.mx/tramites">Tr&aacute;mites</a>
+          </li>
+          <li class="list-first">
+            <a href="https://www.gob.mx/gobierno">Gobierno</a>
+          </li>
+          <li class="list-first">
+            <a href="https://www.gob.mx/busqueda"
+              ><i class="fa fa-search"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="navbar navbar-second">
+      <nav class="top">
+        <a href="https://www.gob.mx" class="home">IMSS</a>
+        <ul>
+          <li class="list-second"><a href="">Inicio</a></li>
+          <li class="list-second second--double">
+            <a href="https://www.gob.mx/conoce-al-imss">Conoce al IMSS</a>
+          </li>
+          <li class="list-second">
+            <a href="https://www.gob.mx/transparencia">Transparencia</a>
+          </li>
+          <li class="list-second">
+            <a href="https://www.gob.mx/directorio">Directorio</a>
+          </li>
+          <li class="list-second second--double">
+            <a href="https://www.gob.mx/contacto">Contacto ciudadano</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="nothing">
+      <a href="#"><img src="../static/imgs/logo-home.png" alt="home" /></a>
+    </div>
+    <div class="content">
+      <div class="adress">
+        <nav>
+          <ul>
+            <li class="direct">
+              <a href=""><i class="fa fa-home" style="font-size: 20px"></i></a>
+            </li>
+            <li class="direct">
+              <i class="fa fa-chevron-right"></i>
+            </li>
+            <li class="direct">
+              <a href="">Inicio</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="row">
+        <h2>Informaci&oacute;n, tr&aacute;mites y servicios para:</h2>
+        <hr class="custom" />
+        <div class="yellow"></div>
+      </div>
+      <div class="choose">
+        <div class="cover">
+          <a href=""><img src="../static/imgs/derechoh.jpg" /></a>
+          <a href=""
+            >Derechohabientes, pensionados y p&uacute;blico en general
+          </a>
+        </div>
+        <div class="cover">
+          <a href=""><img src="../static/imgs/patrones.jpg" alt="" /></a>
+          <a href="">Patrones o Empresas</a>
+        </div>
+        <div class="cover">
+          <a href=""><img src="../static/imgs/proee.jpg" alt="" /></a>
+          <a href="">Proveedores del IMSS</a>
+        </div>
+        <div class="cover">
+          <a href=""><img src="../static/imgs/profsalud.jpg" alt="" /></a>
+          <a href="">Profesionales de la salud</a>
+        </div>
+        <div class="cover">
+          <a href=""><img src="../static/imgs/salaprensa.jpg" alt="" /></a>
+          <a href="">Sala de prensa</a>
+        </div>
+        <div class="cover">
+          <a href=""><img src="../static/imgs/salud.jpg" alt="" /></a>
+          <a href="">Salud en l&iacute;nea</a>
+        </div>
+      </div>
+    </div>
+    <div class="chatbox">
+      <div class="chatbox__support">
+        <div class="chatbox__header">
+          <div class="chatbox__image--header">
+            <img
+              src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png"
+              alt="image"
+            />
+          </div>
+          <div class="chatbox__content--header">
+            <h4 class="chatbox__heading--header">Soporte de chat</h4>
+          </div>
+        </div>
+        <div class="chatbox__messages">
+          <div class="messages__item messages__item--visitor">
+            Bienvenido al chatbot del IMSS. Puedo ayudarte a resolver tus dudas
+            sobre algún trámite. Para empezar quisiera saber a quien está
+            dirigido tu trámite.
+          </div>
+        </div>
+        <div class="chatbox__options" id="choices">
+          <div class="options messages__item messages__item--selector">
+            Menor de edad
+          </div>
+          <div class="options messages__item messages__item--selector">
+            Mayor de edad
+          </div>
+        </div>
+        <div class="chatbox__footer">
+          <input
+            type="text"
+            placeholder="Escribe un mensaje..."
+            autocomplete="off"
+          />
+          <button class="chatbox__send--footer send__button">
+            <i class="glyphicon glyphicon-send"></i>
+          </button>
+        </div>
+      </div>
+      <div class="chatbox__button">
+        <button>
+          <i class="fa fa-comments"></i>
+        </button>
+      </div>
+    </div>
+  </body>
+  <script src="{{ url_for('static', filename='script/source.js')}}"></script>
 </html>
